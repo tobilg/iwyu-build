@@ -16,12 +16,11 @@ RUN apt-get -qy install         \
     linux-libc-dev              \
     llvm-dev                    \
     make                        \
-    subversion                  \
+    git                         \
     --no-install-recommends
 
 #Checkout IWYU and switch the banch clang_3.4
-RUN mkdir include-what-you-use && svn co http://include-what-you-use.googlecode.com/svn/trunk/ source && cd source && svn switch ^/branches/clang_3.4
-
+mkdir include-what-you-use && git clone https://github.com/include-what-you-use/include-what-you-use source && cd source && git checkout -b clang_3.4
 ENV CC clang
 ENV CXX clang++
 ENV CMAKE_C_COMPILER clang
