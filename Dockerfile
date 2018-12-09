@@ -2,7 +2,7 @@
 #forked from jimenez/iwyu:clang_3.4
 
 FROM ubuntu:14.04.2
-MAINTAINER tobilg <fb.tools.github@gmail.com>
+MAINTAINER tobilg <tobilg@gmail.com>
 
 RUN apt-get update -q
 
@@ -20,7 +20,7 @@ RUN apt-get -qy install         \
     --no-install-recommends
 
 #Checkout IWYU and switch the banch clang_3.4
-RUN mkdir include-what-you-use && git clone https://github.com/include-what-you-use/include-what-you-use source && cd source && git checkout -b clang_3.4
+RUN mkdir include-what-you-use && git clone https://github.com/include-what-you-use/include-what-you-use.git source && cd source && git checkout -b clang_3.4
 
 ENV CC clang
 ENV CXX clang++
